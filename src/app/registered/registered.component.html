@@ -1,0 +1,33 @@
+<div class="container" align="center">
+  <div class="col-lg">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <div class="panel-title">Registered Student</div>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <tbody>
+            <th>#</th><th>FIRST NAME</th><th>LAST NAME</th><th>EMAIL</th><th>COURSE</th>
+              <tr *ngFor="let studentList of studentDetail;let i = index">
+                <td>
+                  {{i + 1}}.                
+                </td>
+                <td>
+                  {{studentList?.firstName}} 
+                </td>  
+                <td>
+                  {{studentList?.lastName}}
+                </td>            
+                <td>
+                  {{studentList?.email}}
+                </td>
+                <td>
+                  {{studentList?.courseOption}}                  
+                </td>                                     
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
