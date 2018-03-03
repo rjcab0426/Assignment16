@@ -7,7 +7,7 @@
       <div class="panel-body">
         <table class="table table-striped">
           <tbody>
-            <th>#</th><th>FIRST NAME</th><th>LAST NAME</th><th>EMAIL</th><th>COURSE</th>
+            <th>#</th><th>FIRST NAME</th><th>LAST NAME</th><th>DATE</th><th>COURSE</th>
               <tr *ngFor="let studentList of studentDetail;let i = index">
                 <td>
                   {{i + 1}}.                
@@ -19,7 +19,7 @@
                   {{studentList?.lastName}}
                 </td>            
                 <td>
-                  {{studentList?.email}}
+                  {{studentList?.date | date: 'M/d/yyyy'}} <!-- DatePipe -->
                 </td>
                 <td>
                   {{studentList?.courseOption}}                  

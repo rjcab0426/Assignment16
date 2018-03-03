@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
     this.studentM = {
       firstName: '',
       lastName: '',
-      email: '',
+      date: '',
       courseType: ''        
     };   
 
@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
     this.studentDetail = {
       firstName: values.firstName,
       lastName: values.lastName,
-      email: values.email,
+      date: values.date,
       courseOption: values.courseType
     };
     
