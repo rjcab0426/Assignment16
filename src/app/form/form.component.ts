@@ -4,7 +4,7 @@ import { FormService } from '..//form.service';
 import { IStudents, IStudentsModel } from '../students';
 import { ICourseType } from '../course';
 import { CoursetypeService } from '..//coursetype.service'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -20,7 +20,12 @@ export class FormComponent implements OnInit {
   studentM: IStudentsModel
   studentDetail: IStudents
 
-  constructor(private formService: FormService, private coursetypeService: CoursetypeService) { }
+  constructor(
+    private formService: FormService, 
+    private coursetypeService: CoursetypeService,
+    private router: Router
+  
+  ) { }
      
   ngOnInit() {
     
@@ -45,6 +50,8 @@ export class FormComponent implements OnInit {
     this.formService.addStudents(this.studentDetail)
     
     this.studentArray = this.formService.getStudents()
+
+    this.router.navigate(['/registered'])
   }
 
   resetForm(studentForm) {

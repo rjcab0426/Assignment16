@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, DoCheck } from '@angular/core';
 import { IStudents } from '../students';
+import { FormService } from '../form.service';
+
 
 @Component({
   selector: 'app-registered',
@@ -8,13 +10,17 @@ import { IStudents } from '../students';
 })
 export class RegisteredComponent implements OnInit {
 
-  @Input() studentDetail;
+studentDetail: IStudents[];
+
+  private searchStudent: string;
 
   studentList: IStudents;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
   ngOnInit() {
+    this.searchStudent = '';
+    this.studentDetail = this.formService.getStudents();
   }
 
 }

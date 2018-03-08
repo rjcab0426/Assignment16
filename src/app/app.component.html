@@ -1,7 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <app-form></app-form>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">      
+      <ul class="nav nav-pills">
+
+        <li role="presentation"><a routerLink="/form" routerLinkActive>
+          <span class="label label-info">Student Form</span></a></li>
+
+        <li role="presentation"><a routerLink="/registered" routerLinkActive>
+          <span class="label label-info">Registered Students</span></a></li>
+
+      </ul>      
     </div>
   </div>
-</div>
+</nav>
+
+<router-outlet></router-outlet> <!--Router Outlet-->

@@ -1,5 +1,5 @@
 <br/>
-<form #studentForm="ngForm" (ngSubmit)="addStudents(studentForm.value)">
+<form #studentForm="ngForm" novalidate autocomplete="off" (ngSubmit)="addStudents(studentForm.value)">
   <div class="container" align="center">
     <div class="col-lg">
       <div class="panel panel-primary" id="panel">
@@ -89,9 +89,9 @@
 <br/>
 <br/>
 
-  <div>
+<!--<div>
     <app-registered [studentDetail]="studentArray"></app-registered>
-  </div>
- 
+  </div>-->
+
 
 
