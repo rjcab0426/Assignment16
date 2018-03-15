@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -12,12 +12,15 @@ import { CoursetypeService } from './coursetype.service';
 import { CapitalizePipe } from './capitalize.pipe';
 import { SearchPipe } from './search.pipe';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/form', pathMatch: 'full'},
-  { path: 'form', component: FormComponent },
-  { path: 'registered', component: RegisteredComponent },
-  { path: 'studentDetail/:id', component: StudentDetailComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'login', component: LoginComponent },
+  { path: 'form', component: FormComponent, canActivate: [AuthGuardService] },
+  { path: 'registered', component: RegisteredComponent, canActivate: [AuthGuardService] },
+  { path: 'studentDetail/:id', component: StudentDetailComponent }
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ const routes: Routes = [
     RegisteredComponent,
     CapitalizePipe,
     SearchPipe,
-    StudentDetailComponent
+    StudentDetailComponent,
+    LoginComponent
   ],
 
   imports: [
@@ -35,7 +39,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FormService, CoursetypeService],
+  providers: [FormService, CoursetypeService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
