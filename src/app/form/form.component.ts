@@ -6,6 +6,7 @@ import { ICourseType } from '../course';
 import { CoursetypeService } from '..//coursetype.service'
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -23,7 +24,8 @@ export class FormComponent implements OnInit {
   constructor(
     private formService: FormService, 
     private coursetypeService: CoursetypeService,
-    private router: Router
+    private router: Router,
+    private ngForm: NgForm
   
   ) { }
      

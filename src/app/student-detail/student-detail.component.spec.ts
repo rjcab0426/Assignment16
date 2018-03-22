@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { StudentDetailComponent } from './student-detail.component';
 
 describe('StudentDetailComponent', () => {
@@ -8,7 +8,8 @@ describe('StudentDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentDetailComponent ]
+      declarations: [ StudentDetailComponent ],
+      imports: [ RouterTestingModule ] // fixed the router error in unit testing
     })
     .compileComponents();
   }));
